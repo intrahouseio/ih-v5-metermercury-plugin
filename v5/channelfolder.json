@@ -13,10 +13,10 @@
 
   "p2": [
     { "prop": "addr", "title": "Серийный номер счетчика", "type": "input"},
-    { "prop": "constant", "title": "Постоянная счетчика", "type": "number", "default": 1250 },
-    { "prop": "ks", "title": "Коэф-т Кс для мгновенной мощности", "type": "number", "default":1, "min": 1, "max": 2 },
-    { "prop": "handkti", "title": "Коэффициент тока", "type": "number", "default":1 },
-    { "prop": "handktu", "title": "Коэффициент напряжения", "type": "number", "default":1 },
+    { "prop": "constant", "title": "Постоянная счетчика", "type": "number", "default": 1250 , "hide" : "1==1"},
+    { "prop": "ks", "title": "Коэф-т Кс для мгновенной мощности", "type": "number", "default":1, "min": 1, "max": 2, "hide" : "1==1" },
+    { "prop": "handkti", "title": "Коэффициент тока", "type": "number", "default":1, "hide" : "1==1" },
+    { "prop": "handktu", "title": "Коэффициент напряжения", "type": "number", "default":1, "hide" : "1==1" },
     { "prop": "password", "title": "Пароль к счетчику (если не задан - используется дефолтный)", "type": "input" }
   ],
 

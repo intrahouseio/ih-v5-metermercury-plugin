@@ -25,13 +25,13 @@ module.exports = async function(plugin) {
     agent.run();
 
     plugin.channels.onChange(async () => {
-      plugin.log('INFO: Каналы изменены - обновление данных опроса...');
+      plugin.log('INFO: Каналы изменены - обновление данных опроса...', 1);
       agent.suspendPolling();
       await getAndCreateMeterlist();
       agent.restartPolling();
     });
   } catch (err) {
-    plugin.log('ERROR: ' + util.inspect(err));
+    plugin.log('ERROR: ' + util.inspect(err), 1);
     plugin.exit(2);
   }
 
@@ -40,13 +40,13 @@ module.exports = async function(plugin) {
     // plugin.log('Received devhard data: ' + util.inspect(devhard), 2);
     meters.createMeterlist(devhard);
     if (!meters.isEmpty()) {
-      plugin.log('INFO: Счетчиков для опроса: ' + meters.list.length);
+      plugin.log('INFO: Счетчиков для опроса: ' + meters.list.length, 1);
       meters.list.forEach(meter => {
         const nchan = Object.keys(meter.chans).length;
-        plugin.log(' ' + meter.parentname + ' Адрес: ' + meter.addr + ' Каналов для опроса: ' + nchan);
+        plugin.log(' ' + meter.parentname + ' Адрес: ' + meter.addr + ' Каналов для опроса: ' + nchan, 1);
       });
     } else {
-      plugin.log('ERROR: Список счетчиков пуст! Нет каналов для опроса...');
+      plugin.log('ERROR: Список счетчиков пуст! Нет каналов для опроса...', 1);
       plugin.exit(3);
     }
   }
